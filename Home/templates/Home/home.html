@@ -1,0 +1,29 @@
+
+{% extends "Home/base.html" %}
+{% load static %}
+{% block content %} 
+
+<title>Gymkhana-Home</title>
+
+<h1>Home Page-Student's Affairs</h1>
+
+<div class="container-fluid">
+        <div class="media">
+            <img class="rounded-circle account-img " src="{% static 'Home/default.png' %}" alt="pic"> 
+            <div class="media-body">
+                <p class="text-primary"><br>
+                    {{ members.name }}<br>
+                    <br>
+                    {{ members.position }},<br>
+                    {{ members.board }}<br>
+                    <br>
+                    Mobile: {{ members.mobile }}<br>
+                    Email: {{ members.email }}<br>
+                    Address: {{ members.address }}<br>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock content %}
