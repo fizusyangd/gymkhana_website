@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.base import Model
 
 # Create your models here.
 
@@ -55,3 +56,20 @@ class Boards(models.Model):
 
     def __str__(self):
         return self.name
+
+class Announcements(models.Model):
+    title = models.TextField()
+    date = models.DateTimeField()
+    mark = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+class Achievements(models.Model):
+    title = models.TextField()
+    description = models.TextField()
+    image = models.ImageField()
+    year = models.IntegerField()
+
+    def __str__(self):
+        return self.title
