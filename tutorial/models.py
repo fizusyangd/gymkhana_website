@@ -11,3 +11,11 @@ class Team(models.Model):
     start_date = models.DateTimeField(default="no date")
     end_date = models.DateTimeField(default="no date")
 
+class NewEvents(models.Model):
+    name = models.TextField()
+    image = models.ImageField()
+    about = models.TextField()
+
+    def __str__(self):
+        return self.name
+

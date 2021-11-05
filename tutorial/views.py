@@ -1,6 +1,6 @@
 from tutorial.models import OutlookUser, Team
 from django.http.response import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from datetime import datetime, timedelta
@@ -8,6 +8,8 @@ from dateutil import tz, parser
 from tutorial.auth_helper import get_sign_in_flow, get_token_from_code, store_user, remove_user_and_token, get_token
 from tutorial.graph_helper import *
 from django.core import serializers
+from django.contrib import messages
+from . import forms
 
 # <HomeViewSnippet>
 def home(request):
@@ -227,3 +229,14 @@ def teamDetails(request):
     team_dic[str(i)] = {"team_name" : team.team_name, "start_date" : team.start_date, "end_date" : team.end_date}
     i= i+1
   return JsonResponse(team_dic)
+
+def formDetails(request):
+  if request.method == 'POST':
+      form = forms.AdditionForm(request.POST, request.FILES)
+      if form.is_valid():
+          form.save()
+          messages.success(request, f'Post Successful')
+          return redirect('home')
+  else:
+      form = forms.AdditionForm()
+  return render(request, 'tutorial/newAddition.html', {'form': form})

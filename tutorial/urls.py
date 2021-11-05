@@ -17,6 +17,7 @@ urlpatterns = [
   path('calendarAPI', views.calendarAPI, name='newevent'),
   path('userDetails', views.userDetails, name='newevent'),
   path('teamDetails', views.teamDetails, name='newevent'),
+  path('formDetails', views.formDetails, name='senate-form'),
 
   
 ]
