@@ -13,42 +13,53 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="{% static 'Home/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'Home/header.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" type="image/png" href="{% static 'Home/favi.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'Home/images/logo.png' %}">
     
 </head>
-<body style="background-color: gold;">
-    <nav class="navbar navbar-expand-lg fixed top navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'gymkhana-home' %}"><img src="{% static 'Home/favi.png' %}" alt="logo" width="40px" height="40px"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="{% url 'gymkhana-home' %}">Home</a>
-                <a class="nav-link" href="{% url 'gymkhana-senate' %}">Senate</a>
-                <a class="nav-link" href="{% url 'gymkhana-technical' %}">Technical</a>
-                <a class="nav-link" href="{% url 'gymkhana-cultural' %}">Cultural</a>
-                <a class="nav-link" href="{% url 'gymkhana-sports' %}">Sports</a>
-                <a class="nav-link" href="{% url 'gymkhana-welfare' %}">Welfare</a>
-                <a class="nav-link" href="{% url 'gymkhana-hab' %}">HAB</a>
-                <a class="nav-link" href="{% url 'gymkhana-complaint' %}">Complaint</a>
-                <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
-            </div>
+<body style="background-color: rgb(255, 255, 255);">
+      <div class="header">
+          <div style="display: flex; justify-content: center; align-items: center; background-color: #2c2c2c; padding-top: 10px; padding-bottom: 10px;">
+                <img src="{% static 'Home/images/IITGlogo.png' %}" alt="logo" style="width: 40px; height: 40px; display: flex;">
+                <div style="color: white; padding-top: 10px; padding-left: 12px;"><h6>INDIAN INSTITUTE OF TECHNOLOGY GUWAHATI</h6></div>
           </div>
-        </div>
-      </nav>
+        <nav>
+            <div class="Gymkhana">  <a class="navbar-brand" href="{% url 'gymkhana-home' %}"><img src="{% static 'Home/images/logo.png' %}" alt="logo" width="40px" height="40px"></a></div>
+            <div class="logo" style="font-weight: 600; color: #fff; padding-right: 95px;">GYMKHANA COUNCIL</div>
+            <div class="nav-items">
+                <li><a href="{% url 'gymkhana-home' %}" style="padding-right: 15px;"> HOME</a></li>
+                <li><a href="{% url 'gymkhana-senate' %}" style="padding-right: 15px;">SENATE</a></li>
+                <li><a href="{% url 'gymkhana-technical' %}" style="padding-right: 15px;">TECHNICAL</a></li>
+                <li><a href="{% url 'gymkhana-cultural' %}" style="padding-right: 15px;">CULTURAL</a></li>
+                <li><a href="{% url 'gymkhana-sports' %}" style="padding-right: 15px;">SPORTS</a></li>
+                <li><a href="{% url 'gymkhana-welfare' %}" style="padding-right: 15px;">WELFARE</a></li>
+                <li><a href="{% url 'gymkhana-hab' %}" style="padding-right: 15px;">HAB</a></li>
+            </div>
+            <div class="content">
+                <div class="logos">
+                    <a href="#"> <img src="https://img.icons8.com/ios/50/ffffff/search--v1.png"
+                            style="height: 27px; padding-right: 10px;"></a>
+                    <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/menu--v1.png"
+                            style="height: 27px; padding-right: 15px;"></a>
+                </div>
+            </div>
 
+        </nav>
+    </div>
+      
     <div class="container">
-
+       
         {% if messages %}
         {% for message in messages %}
         <div class="alert alert-{{message.tags}}">{{message}}</div>
         {% endfor %}
         {% endif %}
-
-        {% block content %} {% endblock %}
+        <!--
+        {% block gallery %}
+        {% endblock gallery %}
+        --->
+        {% block content %} {% endblock content %}
     </div>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
@@ -60,7 +71,7 @@
             <div class="row"><br><br><br>
                 <div class="col-md-4" style="text-align:center;">
                     <p class="foot2"><br>
-                        <img src="{% static 'Home/favi.png' %}" alt="Gymkhana logo" style="height: 50px; width: 50px; margin-right: 25px;">
+                        <img src="{% static 'Home/images/logo.png' %}" alt="Gymkhana logo" style="height: 50px; width: 50px; margin-right: 25px;">
                         <i class="bi bi-geo-alt-fill"></i>
                         Students' Gymkhana Council,<br>
                         New SAC Building<br>

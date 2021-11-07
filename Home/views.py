@@ -14,6 +14,8 @@ def home(request):
         'members': user
     }
     return render(request,'Home/home.html',context)
+def gallery(request):
+    return render(request,'Home/gallery.html')
 
 def senate(request):
     try:
